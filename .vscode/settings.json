@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "input": "plaintext",
+        "iosfwd": "cpp"
+    }
+}

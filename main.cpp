@@ -89,5 +89,31 @@ int part_1(const vector<string> data)
 }
 int part_2(const vector<string> data)
 {
-    return 0;
+    int count = 0;
+
+    for (int i = 0; i < data.size(); i++)
+    {
+        vector<string> sub = split_str(data[i], ':');
+        string pass = sub[1];
+
+        vector<string> sub1 = split_str(sub[0], ' ');
+        char character = sub1[1][0];
+
+        vector<string> sub2 = split_str(sub1[0], '-');
+        int index1 = stoi(sub2[0]);
+        int index2 = stoi(sub2[1]);
+
+        if (pass[index1] == character)
+        {
+            if (pass[index2] != character)
+                count++;
+        }
+        else if (pass[index2] == character)
+        {
+            if (pass[index1] != character)
+                count++;
+        }
+    }
+
+    return count;
 }
