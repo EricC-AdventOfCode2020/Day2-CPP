@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -42,28 +43,15 @@ vector<string> read_input()
 }
 vector<string> split_str(string line, char split)
 {
+    // i love you stack overflow user "thelazydeveloper"
+
+    stringstream test(line);
+    string segment;
     vector<string> subStrings;
 
-    string subLine = "";
-    for (int i = 0; i < line.length(); i++)
+    while (getline(test, segment, split))
     {
-        // if (line.at(i) != split)
-        //     subLine += line.at(i);
-        // else
-        // {
-        //     // subStrings.push_back(subLine);
-        //     cout << subLine << endl;
-        //     subLine = "";
-        // }
-        if (line.at(i) == split)
-        {
-            cout << subLine << endl;
-            subStrings.push_back(subLine);
-            subLine = ""; 
-            continue;
-        }
-
-        subLine += line.at(i);
+        subStrings.push_back(segment);
     }
 
     return subStrings;
@@ -71,16 +59,7 @@ vector<string> split_str(string line, char split)
 
 int part_1(const vector<string> data)
 {
-    // for (int i = 0; i < data.size(); i++)
-    // {
-    //     vector<string> sub = split_str(data[i], ':');
-
-    //     for (int j = 0; j < sub.size(); j++)
-    //         cout << sub[j] << ' ';
-    //     cout << endl;
-    // }
-
-    vector<string> sub = split_str(data[0], ':');
+    // shit's no longer borked :D
 
     return 0;
 }
