@@ -60,9 +60,34 @@ vector<string> split_str(string line, char split)
 int part_1(const vector<string> data)
 {
     // shit's no longer borked :D
+    int count = 0;
 
-    return 0;
+    for (int i = 0; i < data.size(); i++)
+    {
+        vector<string> sub = split_str(data[i], ':');
+        string pass = sub[1];
+
+        vector<string> sub1 = split_str(sub[0], ' ');
+        char character = sub1[1][0];
+
+        vector<string> sub2 = split_str(sub1[0], '-');
+        int min = stoi(sub2[0]);
+        int max = stoi(sub2[1]);
+
+        int appearanceCount = 0;
+        for (int j = 0; j < pass.length(); j++)
+        {
+            if (pass.at(j) == character)
+                appearanceCount++;
+        }
+
+        if (appearanceCount >= min && appearanceCount <= max)
+            count++;
+    }
+
+    return count;
 }
 int part_2(const vector<string> data)
 {
+    return 0;
 }
